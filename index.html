@@ -40,8 +40,49 @@
           </div>
         </div>
         <div>
-          <button class="btn btn-default" ng-click="player1=0; player2=0; player1Class = 'blue-box'; player2Class = 'blue-box'">Reset</button>
+          <button class="btn btn-default margin-me" ng-click="player1=0; player2=0; player1Class = 'blue-box'; player2Class = 'blue-box'">Reset</button>
         </div>
+      </div>
+
+      <div ng-controller="ContactListController">
+        <h1>Contact List</h1>
+        <form class="form-inline" ng-submit="saveUser()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" ng-model="name" placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" ng-model="email" placeholder="jane.doe@example.com">
+          </div>
+          <div class="form-group">
+            <label for="phoneNum">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNum" ng-model="phoneNum" placeholder="123-456-7890">
+          </div>
+          <div class="form-group">
+            <button type="submit" value="submit" class="btn btn-success">Add contact</button>
+          </div>
+        </form>
+
+        <form>
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <input type="text" class="form-control" ng-model="searchText" placeholder="Search...">
+        </form>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Email</td>
+              <td>Phone Number</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in users | filter:searchText">
+              <td ng-repeat="(key, value) in user">{{value}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
     </div>

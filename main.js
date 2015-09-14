@@ -1,5 +1,6 @@
 var mainApp = angular.module("mainApp", []); 
 
+// Random number generator
 mainApp.controller("MainController", function($scope){
   $scope.number = 5;
 
@@ -8,6 +9,7 @@ mainApp.controller("MainController", function($scope){
   };
 });
 
+// Reverse word
 mainApp.controller("ReverseWordController", function($scope){
   $scope.word = "";
 
@@ -21,6 +23,8 @@ mainApp.controller("ReverseWordController", function($scope){
 
 });
 
+
+// Ping pong score keeper
 mainApp.controller("PingPongController", function($scope){
   $scope.player1 = 0;
   $scope.player2 = 0;
@@ -37,5 +41,20 @@ mainApp.controller("PingPongController", function($scope){
       $scope.player2Class = 'green-box';
     }
   };
-
 });
+
+// Search contacts
+mainApp.controller("ContactListController", function($scope){
+  $scope.users = [{'name': 'tom', 'email': 'email@email.com', 'phoneNum': '234-567-8901'},
+    {'name': 'sarah', 'email': 'sarah@email.com', 'phoneNum': '543-567-6578'},
+    {'name': 'amber', 'email': 'amber@email.com', 'phoneNum': '897-321-7684'}
+  ];
+  $scope.name = "";
+  $scope.email = "";
+  $scope.phoneNum = "";
+
+  $scope.saveUser = function(){
+    $scope.users.push({'name':this.name, 'email':this.email, 'phoneNum':this.phoneNum});
+  };
+});
+

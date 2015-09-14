@@ -20,11 +20,19 @@
   font-size: 75px;
 }
 
-button, input, .margin {
+button:not(:last-child), input, .margin {
   margin: 10px;
 }
 
 .ping-pong-row {
   text-align: center;
   margin-bottom: 30px;
+}
+
+.margin-me {
+  margin: 35px;
+}
+
+.row {
+  margin: 20px;
 }
